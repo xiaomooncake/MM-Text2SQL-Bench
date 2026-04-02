@@ -1,2 +1,120 @@
 # MM-Text2SQL-Bench
-A Benchmark for Image-Grounded Text-to-SQL and Multimodal Database Reasoning
+
+**MM-Text2SQL-Bench** is a benchmark for **image-grounded Text-to-SQL** and **multimodal database reasoning**. It studies a setting in which answering a natural-language question requires joint reasoning over an **image**, a **database schema**, a **database instance**, and the **question itself**.
+
+Unlike conventional Text-to-SQL, where the query can often be inferred from text and schema alone, MM-Text2SQL-Bench focuses on cases where part of the SQL semantics is determined by **visual evidence**. The benchmark is designed to evaluate whether models can identify image-conditioned constraints, connect them to database fields, and generate executable SQL queries that return correct answers.
+
+---
+
+## News
+
+- **[Coming Soon]** Project page and benchmark download links.
+- **[Coming Soon]** Baseline scripts and evaluation toolkit.
+- **[Coming Soon]** Dataset paper and citation information.
+
+---
+
+## Overview
+
+Each example in MM-Text2SQL-Bench contains:
+
+- an **image**
+- a **natural-language question**
+- a **database schema**
+- a **database instance**
+- a **gold SQL query**
+- the **execution answer**
+- optional **structured visual evidence**
+
+The benchmark is built to study multimodal reasoning beyond standard visual question answering and beyond standard Text-to-SQL. In our setting, the image is not decorative side information. Instead, it provides part of the grounding signal required to construct the correct SQL query.
+
+---
+
+## Why This Benchmark?
+
+MM-Text2SQL-Bench is motivated by the observation that many real-world analytical questions require both **visual understanding** and **structured data access**. Existing Text-to-SQL benchmarks assume that the full query intent is recoverable from text and schema, while conventional multimodal QA benchmarks often do not require executable database querying.
+
+This benchmark fills that gap by introducing a task where the model must jointly:
+
+1. identify visually grounded conditions,
+2. map those conditions to relevant schema elements,
+3. generate executable SQL, and
+4. retrieve the correct answer through database execution.
+
+---
+
+## Task Definition
+
+Given an image `I`, a natural-language question `q`, a database schema `S`, and a database instance `D`, the goal is to generate a SQL query `y` such that:
+
+- `y` is **syntactically valid**,
+- `y` is **executable** on `D`,
+- `y` correctly captures the semantics of `q`, and
+- at least part of `y` is grounded in the visual content of `I`.
+
+---
+
+## Benchmark Protocols
+
+We evaluate models under three protocols:
+
+### P1: Text-only SQL Generation
+The model receives the **question** and the **schema** only. This protocol measures how far a model can go without explicit visual grounding.
+
+### P2: Evidence-augmented SQL Generation
+The model receives the **question**, **schema**, and **structured visual evidence** extracted from the image. This protocol evaluates whether intermediate visual grounding improves SQL generation.
+
+### P3: End-to-end Multimodal Reasoning
+The model directly receives the **image**, **question**, and **schema**. This protocol evaluates integrated multimodal reasoning without manually curated intermediate evidence.
+
+---
+
+## What Is Included
+
+This repository contains:
+
+- benchmark documentation
+- dataset card
+- sample instances
+- project website files
+- supplementary materials
+- baseline descriptions
+- evaluation protocol descriptions
+
+The full benchmark release will include:
+
+- training / development / test splits
+- images
+- schema files
+- database files
+- gold SQL annotations
+- execution answers
+- evidence annotations where applicable
+- evaluation scripts
+
+---
+
+## Repository Structure
+
+```text
+MM-Text2SQL-Bench/
+├── README.md
+├── LICENSE
+├── CITATION.cff
+├── docs/
+│   ├── index.md
+│   ├── dataset.md
+│   ├── examples.md
+│   ├── baselines.md
+│   ├── download.md
+│   ├── ethics.md
+│   └── assets/
+├── data/
+│   ├── sample/
+│   └── README.md
+├── dataset_card/
+│   └── DATASET_CARD.md
+├── baselines/
+├── scripts/
+├── supplementary/
+└── paper/
