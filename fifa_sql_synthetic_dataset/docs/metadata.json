@@ -1,0 +1,13 @@
+{
+  "name": "FIFA 2017 Synthetic NL2SQL Dataset",
+  "num_examples": 4138,
+  "train_examples": 3310,
+  "dev_examples": 414,
+  "test_examples": 414,
+  "tables": [
+    "players",
+    "clubs",
+    "national_teams"
+  ],
+  "note": "Questions and SQL were automatically synthesized from the FIFA 2017 dataset schema. SQL may be imperfect and is intended as a large bootstrapping resource."
+}
