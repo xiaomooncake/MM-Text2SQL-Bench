@@ -6,13 +6,6 @@ Unlike conventional Text-to-SQL, where the query can often be inferred from text
 
 ---
 
-## News
-
-- **[Coming Soon]** Project page and benchmark download links.
-- **[Coming Soon]** Baseline scripts and evaluation toolkit.
-- **[Coming Soon]** Dataset paper and citation information.
-
----
 
 ## Overview
 
@@ -25,6 +18,22 @@ Each example in MM-Text2SQL-Bench contains:
 - a **gold SQL query**
 - the **execution answer**
 - optional **structured visual evidence**
+
+A simplified JSON-style representation is shown below:
+{
+  "id": "sample_0001",
+  "image": "images/sample_0001.jpg",
+  "question": "Which store has the highest sales among the products shown in the image?",
+  "schema": "schemas/sample_0001_schema.json",
+  "database": "databases/sample_0001.sqlite",
+  "sql": "SELECT store_name FROM sales ...",
+  "answer": ["Downtown Store"],
+  "evidence": {
+    "visual_entities": ["product_A", "product_B"],
+    "candidate_columns": ["product_name", "category"],
+    "grounded_conditions": ["product_name IN (...)"]
+  }
+}
 
 The benchmark is built to study multimodal reasoning beyond standard visual question answering and beyond standard Text-to-SQL. In our setting, the image is not decorative side information. Instead, it provides part of the grounding signal required to construct the correct SQL query.
 
@@ -69,30 +78,6 @@ The model directly receives the **image**, **question**, and **schema**. This pr
 
 ---
 
-## What Is Included
-
-This repository contains:
-
-- benchmark documentation
-- dataset card
-- sample instances
-- project website files
-- supplementary materials
-- baseline descriptions
-- evaluation protocol descriptions
-
-The full benchmark release will include:
-
-- training / development / test splits
-- images
-- schema files
-- database files
-- gold SQL annotations
-- execution answers
-- evidence annotations where applicable
-- evaluation scripts
-
----
 
 ## Repository Structure
 
