@@ -103,7 +103,7 @@ MM-Text2SQL-Bench/
 ├── scripts/
 ├── supplementary/
 └── paper/
-
+---
 ## Dataset Access
 
 Due to file size and storage limitations, the full dataset is not directly hosted in this repository.  
