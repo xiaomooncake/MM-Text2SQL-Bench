@@ -103,3 +103,12 @@ MM-Text2SQL-Bench/
 ├── scripts/
 ├── supplementary/
 └── paper/
+
+## Dataset Access
+
+Due to file size and storage limitations, the full dataset is not directly hosted in this repository.  
+If you need the complete dataset, please download it from the following Google Drive link:
+
+**Google Drive:** https://drive.google.com/drive/folders/1SUGDUgZI2FJ_nVGUP5DpmXBKo6sj5vcj?usp=sharing
+This repository only provides the dataset description, schema files, sample examples, and related documentation.  
+For full experiments, training, or evaluation, please use the complete dataset from Google Drive.
